@@ -1,0 +1,27 @@
+{
+  "name": "mini-twitter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "package.json": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "eslint": "^3.11.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-watch": "^4.3.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/VashchukInna/Mini-Twitter.git"
+  },
+  "author": "Inna Vashchuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VashchukInna/Mini-Twitter/issues"
+  }
+}
