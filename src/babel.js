@@ -31,22 +31,20 @@ bundler.transform(babelify.configure({
 }));
 bundler.on('update', packet);
 gulp.task('default', ['transpile']);
-gulp.task('transpile', ['lint'], function () {
-    return packet();
-}());
-gulp.task('lint', function () {
-        return gulp.src(['src/**/*.js', 'babel.js'])
-            .pipe(ESLint())
-            .pipe(ESLint.format())
-    }()
-);
-gulp.task('serve', ['transpile'], function () {
-    return sync.init({server: 'src'})
-})();
-gulp.task('watch', ['serve'], function () {
-    return gulp.watch('src/**/*', ['js-watch'])
-        .watch('index.html', sync.reload)
-})();
-gulp.task('js-watch', ['transpile'], function () {
-    return sync.reload()
-})();
+gulp.task('transpile', ['lint'], () => packet());
+gulp.task('lint', () => {
+    return gulp.src(['src/**/*.js', 'babel.js'])
+        .pipe(ESLint())
+        .pipe(ESLint.format())
+});
+gulp.task('serve', ['transpile'], () => sync.init({ server: 'src' }))
+gulp.task('watch', ['serve'], () => {
+    gulp.watch('src/**/*', ['js-watch'])
+gulp.watch('public/assets/style.css', sync.reload)
+gulp.watch('index.html', sync.reload)
+});
+gulp.task('js-watch', ['transpile'], () => sync.reload());
+
+
+
+
