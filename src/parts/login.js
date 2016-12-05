@@ -1,15 +1,16 @@
 import React from 'react';
 export default class Login extends React.Part {
-  render() {
-    return <div>
-          <form className="login" onSubmit={this._submit.bind(this)}>
-          <input type="text" placeholder="username" name="login"/>
-          <input type="password" placeholder="password" name="password"/>
-          <input className="submit-button" type="submit" value="Log-in"/>
-          </form>
-          </div>;
-  }
-    _submit(i) {
+    render() {
+        return <div>
+            <form className="login" onSubmit={this._submit.bind(this)}>
+                <input type="text" placeholder="username" name="login"/>
+                <input type="password" placeholder="password" name="password"/>
+                <input className="submit-button" type="submit" value="Log-in"/>
+            </form>
+        </div>;
+    }
+
+    _handleSubmit(i) {
         i.preventDefault();
         const entry = {};
         const inputs = [].slice.call(i.target.getElementsByTagName('input'));
@@ -19,7 +20,7 @@ export default class Login extends React.Part {
             }
             entry[input.name] = input.value;
         });
-        this.props._submit(entry);
+        this.props._handleSubmit(entry);
     }
 }
 export default Login;

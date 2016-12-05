@@ -37,14 +37,9 @@ gulp.task('lint', () => {
         .pipe(ESLint())
         .pipe(ESLint.format())
 });
-gulp.task('serve', ['transpile'], () => sync.init({ server: 'src' }))
+gulp.task('serve', ['transpile'], () => sync.init({server: 'src'}));
 gulp.task('watch', ['serve'], () => {
-    gulp.watch('src/**/*', ['js-watch'])
-gulp.watch('public/assets/style.css', sync.reload)
-gulp.watch('index.html', sync.reload)
+    gulp.watch('src/**/*', ['js-watch']);
+    gulp.watch('index.html', sync.reload)
 });
 gulp.task('js-watch', ['transpile'], () => sync.reload());
-
-
-
-
