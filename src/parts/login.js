@@ -1,5 +1,5 @@
 import React from 'react';
-export default class Login extends React.Part {
+export default class Login extends React.Component {
     render() {
         return <div>
             <form className="login" onSubmit={this._submit.bind(this)}>
