@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import jQuery from 'jquery';
 import {hashHistory, Router, Route, Redirect} from 'react-router';
-import Layout from './parts/layout'
+import Layout from './layout'
 import Test from './parts/test'
 
 const app = (
@@ -10,11 +10,15 @@ const app = (
         <Redirect from="/" to="/test"/>
         <Route path="/" component={Layout}>
             <Route path="test" component={Test}/>
+        </Route>
     </Router>
-)
-jQuery(function () {
+);
+jQuery(function() {
     ReactDOM.render(
         app,
-        document.getElementById('main')
+        document.getElementById('main'),
+        function() {
+            console.timeEnd('react-app')
+        }
     );
 });

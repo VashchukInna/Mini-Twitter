@@ -5,12 +5,12 @@ export default class Post extends React.Component {
         if (this.state.showConfirm) {
             return (
                 <p>
-                    <a href="" onClick={this._confirmDelete}>Yes </a> - <a href="" onClick={this._confirmMessage}>
+                    <a href="" onClick={this._confirmDelete}>Yes </a> - <a href="" onClick={this._toggleConfirmMessage}>
                     No</a>
                 </p>
             );
         } else {
-            confirm = <a href="" onClick={this._confirmMessage}>{this.props.children}</a>;
+            confirm = <a href="" onClick={this._toggleConfirmMessage}>{this.props.children}</a>;
         }
         return (
             <span>
@@ -19,7 +19,7 @@ export default class Post extends React.Component {
         );
     }
 
-    _confirmMessage(i) {
+    _toggleConfirmMessage(i) {
         i.preventDefault();
         this.setState({
             showConfirm: !this.state.showConfirm
@@ -39,7 +39,7 @@ export default class Post extends React.Component {
         this.state = {
             showConfirm: false
         };
-        this._confirmMessage = this._confirmMessage.bind(this);
+        this._toggleConfirmMessage = this._toggleConfirmMessage.bind(this);
         this._confirmDelete = this._confirmDelete.bind(this);
     }
 }
